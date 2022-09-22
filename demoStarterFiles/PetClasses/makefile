@@ -1,8 +1,8 @@
-pet:
-	gcc -o pet petdriver.o
+pet: pet_gross.o
+	g++ -o pet pet_gross.o
 
-petdriver.o:
-	gcc -c pet_gross.cpp -o petdriver.o
+pet_gross.o: pet_gross.cpp
+	g++ -c pet_gross.cpp
 
 clean:
 	rm *.o pet

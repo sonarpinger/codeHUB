@@ -1,31 +1,22 @@
-#ifndef
-#define
+#ifndef DATE_H
+
+#define DATE_H
+
+using namespace std;
 
 class Date{
-    //declare month, day, year properties
-
-    //copy constructor
-
-    //default constructor
-
-    //parameterized constructor
+    int m, d, y;
 
     public:
-        //setMonth
+        int getDay();
+        int getMonth();
+        int getYear();
+        void setDay(int);
+        void setMonth(int);
+        void setYear(int);
 
-        //getMonth
-
-        //setDay
-
-        //getDay
-
-        //setYear
-
-        //getYear
-
-        //outputAmerican
-
-        //outputEuropean
+        void outputAmerican();
+        void outputEuropean();
 };
 
 #endif

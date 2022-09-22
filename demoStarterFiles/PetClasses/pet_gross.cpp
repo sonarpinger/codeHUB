@@ -45,5 +45,5 @@ int main(){
     newpet.setSpecies("Canine Lupus Familiaris");
     newpet.setName("Doug");
 
-    cout << newpet.getName() << " is a " << newpet.getSpecies() << " with " << newpet.getLegs() << " legs."
+    cout << newpet.getName() << " is a " << newpet.getSpecies() << " with " << newpet.getLegs() << " legs.";
 }
