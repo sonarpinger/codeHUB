@@ -1,19 +1,20 @@
-shapeExecutable: 
-	g++ -o
+shapeExecutable: shapeDriver.o shape.o triangle.o
+	g++ -o shapeExecutable shapeDriver.o shape.o triangle.o
 
-shapeDriver.o: 
-	g++ -c 
+shapeDriver.o: shapeDriver.cpp triangle.h shape.h
+	g++ -c shapeDriver.cpp
 
-shape.o: 
-	g++ -c 
+shape.o: shape.cpp shape.h
+	g++ -c shape.cpp
 
-circle.o: 
-	g++ -c 
-triangle.o: 
-	g++ -c 
+# circle.o: 
+# 	g++ -c 
 
-trapezoid.o:
-	g++ -c 
+triangle.o: triangle.cpp triangle.h shape.h
+	g++ -c triangle.cpp
+
+# trapezoid.o:
+# 	g++ -c 
 
 clean:
-	rm *.o
+	rm *.o shapeExecutable

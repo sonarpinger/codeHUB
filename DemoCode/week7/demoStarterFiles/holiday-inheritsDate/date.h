@@ -2,7 +2,8 @@
 #define DATE_H
 
 class Date{
-    int day, month, year;
+    protected:
+        int day, month, year;
 
     public:
         Date();

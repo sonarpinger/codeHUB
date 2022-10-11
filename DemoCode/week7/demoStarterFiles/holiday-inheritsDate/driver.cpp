@@ -8,9 +8,7 @@
 
 int main(){
     Date christmas(25, 12, 2022);
-    Date dates[1];
-    dates[0] = christmas;
-    Holiday christmasHoliday(1, "Christmas", dates);
+    Holiday christmasHoliday(1, "Christmas", christmas);
 
     cout << christmasHoliday.getName() << " will be on " << christmas.getMonth() << "/" << christmas.getDay() << "/" << christmas.getYear() << endl;
     return 0;

@@ -1,22 +1,18 @@
 #include "holiday.h"
 
 Holiday::Holiday(){
-    numDays = 0; 
+    numDays = 0;
     name = "DEFAULT";
 }
-Holiday::Holiday(int newNum, string newName, Date newDates[]){
+Holiday::Holiday(int newNum, string newName, Date newDate){
     numDays = newNum;
     name = newName;
-    for(int i = 0; i < numDays; i++){
-        dates[i] = newDates[i];
-    }
+    holidayDate = newDate;
 }
 Holiday::Holiday(const Holiday& oldHoliday){
     numDays = oldHoliday.getNumDays();
     name = oldHoliday.getName();
-    for(int i = 0; i < numDays; i++){
-        dates[i] = oldHoliday.dates[i];
-    }
+    holidayDate = oldHoliday.holidayDate;
 }
 
 int Holiday::getNumDays()const {
@@ -32,9 +28,8 @@ void Holiday::setName(const string newName){
     name = newName;
 }
 void Holiday::addDate(const Date newDate){
-    dates[numDays] = newDate;
-    numDays++;
+    holidayDate = newDate;
 }
-Date* Holiday::getDates() {
-    return dates;
+Date Holiday::getDates() {
+    return holidayDate;
 }
