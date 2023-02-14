@@ -5,8 +5,9 @@ uint32_t ALU::add(uint32_t op1, uint32_t op2){
     // with the bitwise and of the both numbers and returns it, emulating
     // the functionality of the low level registers
     uint32_t res = (op1 | op2) + (op1 & op2);
+    // uint32_t res = op1 + op2;
     // calls overflow detector function
-    didOverflow(op1, op2, res, 1);
+    didOverflow(op1, op2, res, f_add);
     return res;
 }
 
@@ -15,8 +16,8 @@ uint32_t ALU::add(uint32_t op1, uint32_t op2){
 void ALU::didOverflow(uint32_t op1, uint32_t op2, uint32_t res, int func){
     switch (func)
     {
-    case 1:
-        if(res > 65335){
+    case 6:
+        if(res < op1 || res < op2){
             std::cout << "Overflow Detected!" << std::endl;
         }
         break;
