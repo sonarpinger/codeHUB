@@ -13,12 +13,16 @@ uint32_t ALU::add(uint32_t op1, uint32_t op2){
 
 // method that takes in operands, result of ALU function, and the ALU function code
 // and determines if an overflow event hath occured
+
+// uses case 6 for now because 110 is the opcode for addition in an ALU
 void ALU::didOverflow(uint32_t op1, uint32_t op2, uint32_t res, int func){
     switch (func)
     {
     case 6:
         if(res < op1 || res < op2){
-            std::cout << "Overflow Detected!" << std::endl;
+            std::cout << "Overflow: yes" << std::endl;
+        } else{
+            std::cout << "Overflow: no" << std::endl;
         }
         break;
 

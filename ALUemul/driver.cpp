@@ -1,3 +1,4 @@
+#include <sstream>
 #include "alu.h"
 
 int main(){
@@ -5,16 +6,32 @@ int main(){
     uint32_t add1;
     uint32_t add2;
 
-    std::cout << "Enter a 32 bit unsigned hex value" << std::endl; 
-    std::cin >> std::hex >> add1;
-    std::cout << "Entered : " << std::dec << add1 << " (translated to decimal)" << std::endl;
+    std::string inputString;
 
-    std::cout << "Enter another 32 bit unsigned hex value" << std::endl;
-    std::cin >> std::hex >> add2;
-    std::cout << "Entered : " << std::dec << add2 << " (translated to decimal)" << std::endl;
+    std::getline(std::cin, inputString);
 
-    uint32_t result = testALU.add(add1, add2);
+    if(inputString.substr(0,4).compare("ADD ") == 0){
+        int i = 0;
+        std::string arr[3];
+        std::istringstream ssin(inputString);
+        while(ssin.good() && i < 3){
+            ssin >> arr[i];
+            ++i;
+        }
+        std::string op1 = arr[1];
+        std::string op2 = arr[2];
 
-    std::cout << std::hex << result << std::endl;
-    std::cout << "Returned : " << std::dec << result << " (translated to decimal)" << std::endl;
+        if(op1 == "" || op2 == ""){
+            std::cout << "Incomplete ADD usage!" << std::endl;
+            return 0;
+        }
+        add1 = std::stoul(op1, NULL, 16);
+        add2 = std::stoul(op2, NULL, 16);
+
+        uint32_t result = testALU.add(add1, add2);
+        std::cout << inputString << ": " << std::hex << "0x" << result << std::endl;
+
+    }else{
+        std::cout << "Unknown Operation!" << std::endl;
+    }
 }
