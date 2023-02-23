@@ -13,11 +13,16 @@ int main(int argc, char *argv[]){
     std::string inputString;
     std::fstream file (argv[1]);
 
+    if(argc < 2){
+        std::cout << "No Input File! Check README" << std::endl;
+        return 1;
+    }
+
     while(file){
         std::getline(file, inputString);
 
         if(inputString == ""){
-            return 0;
+            continue;
         }
         std::cout << std::endl;
         std::cout << std::endl;
@@ -34,7 +39,7 @@ int main(int argc, char *argv[]){
             std::string op2 = arr[2];
 
             if(op1 == "" || op2 == ""){
-                std::cout << "Incomplete ADD usage!" << std::endl;
+                std::cout << "Incomplete ADD usage! Check README" << std::endl;
                 return 1;
             }
             std::size_t pos1;
@@ -43,11 +48,11 @@ int main(int argc, char *argv[]){
                 add1 = std::stoul(op1, &pos1, 16);
                 add2 = std::stoul(op2, &pos2, 16);
                 if(pos1 != op1.size() || pos2 != op2.size()){
-                    std::cout << "Invalid Argument!" << std::endl;
+                    std::cout << "Invalid Argument! Check README" << std::endl;
                     return 1;
                 }
             }catch(std::invalid_argument e){
-                std::cerr  << "Invalid Argument!" << std::endl;
+                std::cerr  << "Invalid Argument! Check README" << std::endl;
                 return 1;
             }
 
@@ -55,8 +60,12 @@ int main(int argc, char *argv[]){
             std::cout << inputString << ": " << std::hex << "0x" << result << std::endl;
 
         }else{
-            std::cout << "Unknown Operation!" << std::endl;
+            std::cout << "Unknown Operation! Check README" << std::endl;
             return 1;
+        }
+
+        if(file.eof()){
+            break;
         }
     }
 }
