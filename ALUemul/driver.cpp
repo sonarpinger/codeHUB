@@ -7,8 +7,8 @@
 
 int main(int argc, char *argv[]){
     ALU testALU;
-    uint32_t add1;
-    uint32_t add2;
+    uint32_t operator1;
+    uint32_t operator2;
 
     std::string inputString;
     std::fstream file (argv[1]);
@@ -27,43 +27,68 @@ int main(int argc, char *argv[]){
         std::cout << std::endl;
         std::cout << std::endl;
 
-        if(inputString.substr(0,4).compare("ADD ") == 0){
-            int i = 0;
-            std::string arr[3];
-            std::istringstream ssin(inputString);
-            while(ssin.good() && i < 3){
-                ssin >> arr[i];
-                ++i;
-            }
-            std::string op1 = arr[1];
-            std::string op2 = arr[2];
+        int i = 0;
+        std::string arr[3];
+        std::istringstream ssin(inputString);
+        while(ssin.good() && i < 3){
+            ssin >> arr[i];
+            ++i;
+        }
+        std::string op1 = arr[1];
+        std::string op2 = arr[2];
 
-            if(op1 == "" || op2 == ""){
-                std::cout << "Incomplete ADD usage! Check README" << std::endl;
-                return 1;
-            }
-            std::size_t pos1;
-            std::size_t pos2;
-            try{
-                add1 = std::stoul(op1, &pos1, 16);
-                add2 = std::stoul(op2, &pos2, 16);
+        bool oneOperand = 0;
+        if(inputString.substr(0,3).compare("NOT") == 0){
+            oneOperand = 1;
+        }
+        std::size_t pos1;
+        std::size_t pos2;
+        try{
+            operator1 = std::stoul(op1, &pos1, 16);
+            if(!oneOperand){
+                operator2 = std::stoul(op2, &pos2, 16);
                 if(pos1 != op1.size() || pos2 != op2.size()){
                     std::cout << "Invalid Argument! Check README" << std::endl;
                     return 1;
                 }
-            }catch(std::invalid_argument e){
-                std::cerr  << "Invalid Argument! Check README" << std::endl;
-                return 1;
             }
+        }catch(std::invalid_argument e){
+            std::cerr  << "Invalid Argument! Check README" << std::endl;
+            return 1;
+        }
+        std::cout << "Operand 1: " << operator1 << std::endl;
+        std::cout << "Operand 2: " << operator2 << std::endl;
 
-            uint32_t result = testALU.add(add1, add2);
-            std::cout << inputString << ": " << std::hex << "0x" << result << std::endl;
+        uint32_t result;
+        bool updateFlags = 0;
+        if(inputString.substr(3,1).compare("S") == 0){
+        updateFlags = 1;
+        }
 
+        if(inputString.substr(0,3).compare("ADD") == 0){
+            result = testALU.add(operator1, operator2, updateFlags);
+        }else if(inputString.substr(0,3).compare("AND") == 0){
+            result = testALU.andOp(operator1, operator2, updateFlags);
+        }else if(inputString.substr(0,3).compare("ASR") == 0){
+            result = testALU.asr(operator1, operator2, updateFlags);
+        }else if(inputString.substr(0,3).compare("LSR") == 0){
+            result = testALU.lsr(operator1, operator2, updateFlags);
+        }else if(inputString.substr(0,3).compare("LSL") == 0){
+            result = testALU.lsl(operator1, operator2, updateFlags);
+        }else if(inputString.substr(0,3).compare("NOT") == 0){
+            result = testALU.notOp(operator1, updateFlags);
+        }else if(inputString.substr(0,3).compare("ORR") == 0){
+            result = testALU.orr(operator1, operator2, updateFlags);
+        }else if(inputString.substr(0,3).compare("SUB") == 0){
+            result = testALU.sub(operator1, operator2, updateFlags);
+        }else if(inputString.substr(0,3).compare("XOR") == 0){
+            result = testALU.xorOp(operator1, operator2, updateFlags);
         }else{
             std::cout << "Unknown Operation! Check README" << std::endl;
             return 1;
         }
-
+        std::cout << inputString << ": " << std::hex << "0x" << result << std::endl;
+        std::cout << updateFlags << std::endl;
         if(file.eof()){
             break;
         }

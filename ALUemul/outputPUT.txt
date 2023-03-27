@@ -1,0 +1,270 @@
+
+
+Operand 1: 178935125
+Operand 2: 89500330
+ADD   0xAAA5555	0x555AAAA: 0xfffffff
+0
+
+
+Operand 1: ffffffff
+Operand 2: 1
+ADD  0xFFFFFFFF         0x1: 0x0
+0
+
+
+Operand 1: 1234
+Operand 2: 8765
+ADD      0x1234      0x8765: 0x9999
+0
+
+
+Operand 1: 72df9901
+Operand 2: 2e0b484a
+ADD  0x72DF9901  0x2E0B484A: 0xa0eae14b
+0
+
+
+Operand 1: 72df9901
+Operand 2: 2e0b484a
+ADDS  0x72DF9901  0x2E0B484A: 0xa0eae14b
+1
+
+
+Operand 1: aaa5555
+Operand 2: 555aaaa
+AND   0xAAA5555   0x555AAAA: 0x0
+0
+
+
+Operand 1: ffffffff
+Operand 2: 1
+AND  0xFFFFFFFF         0x1: 0x1
+0
+
+
+Operand 1: 1234
+Operand 2: 8765
+AND      0x1234      0x8765: 0x224
+0
+
+
+Operand 1: 72df9901
+Operand 2: 2e0b484a
+AND  0x72DF9901  0x2E0B484A: 0x220b0800
+0
+
+
+Operand 1: 72df9901
+Operand 2: 2e0b484a
+ANDS  0x72DF9901  0x2E0B484A: 0x220b0800
+1
+
+
+Operand 1: aaa5555
+Operand 2: 1
+ASR   0xAAA5555 1: 0x5552aaa
+0
+
+
+Operand 1: ffffffff
+Operand 2: 2
+ASR  0xFFFFFFFF 2: 0xffffffff
+0
+
+
+Operand 1: 1234
+Operand 2: 3
+ASR      0x1234 3: 0x246
+0
+
+
+Operand 1: 72df9901
+Operand 2: 4
+ASR  0x72DF9901  4: 0x72df990
+0
+
+
+Operand 1: 72df9901
+Operand 2: 4
+ASRS  0x72DF9901  4: 0x72df990
+1
+
+
+Operand 1: aaa5555
+Operand 2: 1
+LSR   0xAAA5555 1: 0x5552aaa
+0
+
+
+Operand 1: ffffffff
+Operand 2: 2
+LSR  0xFFFFFFFF 2: 0x3fffffff
+0
+
+
+Operand 1: 1234
+Operand 2: 3
+LSR      0x1234 3: 0x246
+0
+
+
+Operand 1: 72df9901
+Operand 2: 4
+LSR  0x72DF9901  4: 0x72df990
+0
+
+
+Operand 1: 72df9901
+Operand 2: 4
+LSRS  0x72DF9901  4: 0x72df990
+1
+
+
+Operand 1: aaa5555
+Operand 2: 1
+LSL   0xAAA5555 1: 0x1554aaaa
+0
+
+
+Operand 1: ffffffff
+Operand 2: 2
+LSL  0xFFFFFFFF 2: 0xfffffffc
+0
+
+
+Operand 1: 1234
+Operand 2: 3
+LSL      0x1234 3: 0x91a0
+0
+
+
+Operand 1: 72df9901
+Operand 2: 4
+LSL  0x72DF9901  4: 0x2df99010
+0
+
+
+Operand 1: 72df9901
+Operand 2: 4
+LSLS  0x72DF9901  4: 0x2df99010
+1
+
+
+Operand 1: aaa5555
+Operand 2: 4
+NOT   0xAAA5555 : 0xf555aaaa
+0
+
+
+Operand 1: ffffffff
+Operand 2: 4
+NOT  0xFFFFFFFF : 0x0
+0
+
+
+Operand 1: 8765
+Operand 2: 4
+NOT      0x8765 : 0xffff789a
+0
+
+
+Operand 1: 2e0b484a
+Operand 2: 4
+NOT  0x2E0B484A  : 0xd1f4b7b5
+0
+
+
+Operand 1: 2e0b484a
+Operand 2: 4
+NOTS  0x2E0B484A  : 0xd1f4b7b5
+1
+
+
+Operand 1: aaa5555
+Operand 2: 555aaaa
+ORR   0xAAA5555   0x555AAAA: 0xfffffff
+0
+
+
+Operand 1: ffffffff
+Operand 2: 1
+ORR  0xFFFFFFFF         0x1: 0xffffffff
+0
+
+
+Operand 1: 1234
+Operand 2: 8765
+ORR      0x1234      0x8765: 0x9775
+0
+
+
+Operand 1: 72df9901
+Operand 2: 2e0b484a
+ORR  0x72DF9901  0x2E0B484A: 0x7edfd94b
+0
+
+
+Operand 1: 72df9901
+Operand 2: 2e0b484a
+ORRS  0x72DF9901  0x2E0B484A: 0x7edfd94b
+1
+
+
+Operand 1: aaa5555
+Operand 2: 555aaaa
+SUB   0xAAA5555   0x555AAAA: 0x554aaab
+0
+
+
+Operand 1: ffffffff
+Operand 2: 1
+SUB  0xFFFFFFFF         0x1: 0xfffffffe
+0
+
+
+Operand 1: 8765
+Operand 2: 1234
+SUB      0x8765	0x1234      : 0x7531
+0
+
+
+Operand 1: 72df9901
+Operand 2: 2e0b484a
+SUB  0x72DF9901	0x2E0B484A: 0x44d450b7
+0
+
+
+Operand 1: 72df9901
+Operand 2: 2e0b484a
+SUBS  0x72DF9901	0x2E0B484A: 0x44d450b7
+1
+
+
+Operand 1: aaa5555
+Operand 2: 555aaaa
+XOR   0xAAA5555   0x555AAAA: 0xfffffff
+0
+
+
+Operand 1: ffffffff
+Operand 2: 1
+XOR  0xFFFFFFFF         0x1: 0xfffffffe
+0
+
+
+Operand 1: 8765
+Operand 2: 1234
+XOR      0x8765	0x1234      : 0x9551
+0
+
+
+Operand 1: 72df9901
+Operand 2: 2e0b484a
+XOR 0x72DF9901	0x2E0B484A: 0x5cd4d14b
+0
+
+
+Operand 1: 72df9901
+Operand 2: 2e0b484a
+XORS 0x72DF9901	0x2E0B484A: 0x5cd4d14b
+1
