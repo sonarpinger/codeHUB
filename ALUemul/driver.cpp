@@ -11,6 +11,7 @@ int main(int argc, char *argv[]){
     uint32_t operator2;
 
     std::string inputString;
+    std::string copyString;
     std::fstream file (argv[1]);
 
     if(argc < 2){
@@ -24,6 +25,10 @@ int main(int argc, char *argv[]){
         if(inputString == ""){
             continue;
         }
+        if (inputString[inputString.length()-1] == '\r') {
+        inputString.erase(inputString.length()-1);
+        }
+        copyString = inputString;
         std::cout << std::endl;
         std::cout << std::endl;
 
@@ -56,8 +61,8 @@ int main(int argc, char *argv[]){
             std::cerr  << "Invalid Argument! Check README" << std::endl;
             return 1;
         }
-        std::cout << "Operand 1: " << operator1 << std::endl;
-        std::cout << "Operand 2: " << operator2 << std::endl;
+        // std::cout << "Operand 1: " << operator1 << std::endl;
+        // std::cout << "Operand 2: " << operator2 << std::endl;
 
         uint32_t result;
         bool updateFlags = 0;
@@ -87,8 +92,9 @@ int main(int argc, char *argv[]){
             std::cout << "Unknown Operation! Check README" << std::endl;
             return 1;
         }
-        std::cout << inputString << ": " << std::hex << "0x" << result << std::endl;
-        std::cout << updateFlags << std::endl;
+        std::cout << copyString << ": " << std::hex << "0x" << result << std::endl;
+        // output flags
+        testALU.outputNZ();
         if(file.eof()){
             break;
         }

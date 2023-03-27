@@ -18,9 +18,15 @@ class ALU{
         uint32_t sub(uint32_t, uint32_t, bool);
         uint32_t xorOp(uint32_t, uint32_t, bool);
 
-        void giveFlags(uint32_t, uint32_t);
-        void giveFlags(uint32_t, uint32_t, uint32_t);
-        void giveFlags(int32_t, int32_t);
-        void giveFlags(int32_t, int32_t, int32_t);
+        void updateNZ(uint32_t);
+        void updateNZ(int32_t);
+
+        void outputNZ();
+
+        // to be implemented later
+        // void giveFlags(uint32_t, uint32_t);
+        // void giveFlags(uint32_t, uint32_t, uint32_t);
+        // void giveFlags(int32_t, int32_t);
+        // void giveFlags(int32_t, int32_t, int32_t);
 };
 #endif
