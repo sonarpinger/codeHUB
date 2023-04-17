@@ -25,8 +25,8 @@ int main(int argc, char *argv[]){
         if(inputString == ""){
             continue;
         }
-        if (inputString[inputString.length()-1] == '\r') {
-        inputString.erase(inputString.length()-1);
+        if(inputString[inputString.length()-1] == '\r') {
+            inputString.erase(inputString.length()-1);
         }
         copyString = inputString;
         std::cout << std::endl;
