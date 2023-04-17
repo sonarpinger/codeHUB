@@ -17,6 +17,8 @@ class ALU{
         uint32_t orr(uint32_t, uint32_t, bool);
         uint32_t sub(uint32_t, uint32_t, bool);
         uint32_t xorOp(uint32_t, uint32_t, bool);
+        uint32_t mov(uint32_t, bool);
+        uint32_t mvn(uint32_t, bool);
 
         void updateNZ(uint32_t);
         void updateNZ(int32_t);

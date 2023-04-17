@@ -91,6 +91,19 @@ void ALU::updateNZ(int32_t result){
     }
 }
 
+uint32_t ALU::mov(uint32_t operand1, bool updateFlags){
+    if(updateFlags){
+        updateNZ(operand1);
+    }
+    return operand1;
+}
+uint32_t ALU::mvn(uint32_t operand1, bool updateFlags){
+    uint32_t res = (~operand1);
+    if(updateFlags){
+        updateNZ(res);
+    }
+    return res;
+}
 // // signed 2 operand
 // void ALU::giveFlags(int32_t op1, int32_t op2, int32_t res){
 
