@@ -54,10 +54,20 @@ int main(int argc, char *argv[]){
         }else if(inputString.substr(0,3).compare("MVN") == 0){
             oneOperand = 1;
         }
-        if(op1.substr(0,1).compare("#") == 0){
+        if(op1.front() == '#'){
             oneOperand = 1;
             op1.erase(0, 1);
         }
+        if(op1.back() == ','){
+            op1.erase(reg.length() - 1);
+        }
+        if(op2.back() == ','){
+            op2.erase(reg.length() - 1);
+        }
+        if(reg.back() == ','){
+            reg.erase(reg.length() - 1);
+        }
+
         // debug for loop
         for(int i = 0; i < 4; i++){
             std::cout << arr[i] << std::endl;
