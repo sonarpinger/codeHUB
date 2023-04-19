@@ -8,6 +8,7 @@
 // What to do;
 // parse 2 registers as inputs
 // deal with CMP and TST
+// deal with C and V flags
 
 // one operand
 // if not, mvn, mov
