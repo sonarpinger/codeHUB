@@ -62,7 +62,14 @@
     "string_view": "cpp",
     "system_error": "cpp",
     "type_traits": "cpp",
-    "typeinfo": "cpp"
+    "typeinfo": "cpp",
+    "array": "cpp",
+    "deque": "cpp",
+    "unordered_map": "cpp",
+    "vector": "cpp",
+    "functional": "cpp",
+    "tuple": "cpp",
+    "utility": "cpp"
   },
   "C_Cpp_Runner.useAddressSanitizer": false
 }
