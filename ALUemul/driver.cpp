@@ -61,6 +61,12 @@ int main(int argc, char *argv[]){
         }else if(inputString.substr(0,3).compare("mvn") == 0){
             oneOperand = 1;
         }
+        else if(inputString.substr(0,3).compare("cmp") == 0){
+            oneOperand = 1;
+        }
+        else if(inputString.substr(0,3).compare("tst") == 0){
+            oneOperand = 1;
+        }
         if(op1.front() == '#'){
             oneOperand = 1;
             op1.erase(0, 1);
@@ -76,24 +82,29 @@ int main(int argc, char *argv[]){
         }
 
         // debug for loop
-        // for(int i = 0; i < 4; i++){
-        //     std::cout << arr[i] << std::endl;
-        // }
-        // std::cout << "Registers: " << reg << std::endl;
-        // std::cout << "Operand 1: " << op1 << std::endl;
-        // std::cout << "Operand 2: " << op2 << std::endl;
-        // std::cout << "oneOperand: " << oneOperand << std::endl;
+        for(int i = 0; i < 4; i++){
+            std::cout << arr[i] << std::endl;
+        }
+        std::cout << "Registers: " << reg << std::endl;
+        std::cout << "Operand 1: " << op1 << std::endl;
+        std::cout << "Operand 2: " << op2 << std::endl;
+        std::cout << "oneOperand: " << oneOperand << std::endl;
 
         std::size_t pos1;
         std::size_t pos2;
         try{
             if(oneOperand){
-                operator1 = std::stoul(op1, &pos1, 16);
-                if(op2 != ""){
-                    operator2 = std::stoul(op2, &pos2, 16);
-                    if(pos1 != op1.size() || pos2 != op2.size()){
-                        std::cout << "Invalid Operator Argument! Check README" << std::endl;
-                        return 1;
+                if(op1.substr(0,1).compare("r") == 0){
+                    int op1Selector = std::stoi(op1.substr(1,1));
+                    operator1 = registers[op1Selector];
+                }else{
+                    operator1 = std::stoul(op1, &pos1, 16);
+                    if(op2 != ""){
+                        operator2 = std::stoul(op2, &pos2, 16);
+                        if(pos1 != op1.size() || pos2 != op2.size()){
+                            std::cout << "Invalid Operator Argument! Check README" << std::endl;
+                            return 1;
+                        }
                     }
                 }
             }else{
@@ -101,22 +112,22 @@ int main(int argc, char *argv[]){
                 int op2Selector = std::stoi(op2.substr(1,1));
                 operator1 = registers[op1Selector];
                 operator2 = registers[op2Selector];
-                // std::cout << "Operand 1 Selector: " << op1Selector << std::endl;
-                // std::cout << "Operand 2 Selector: " << op2Selector << std::endl;
             }
         }catch(std::invalid_argument e){
             std::cerr  << "Invalid ValueType Argument! Check README" << std::endl;
             return 1;
         }
-        // std::cout << "Operand 1: " << operator1 << std::endl;
-        // std::cout << "Operand 2: " << operator2 << std::endl;
 
         uint32_t result;
         bool updateFlags = 0;
         if(inputString.substr(3,1).compare("s") == 0){
             updateFlags = 1;
         }
-        if(inputString.substr(0,3).compare("mov") == 0){
+        if(inputString.substr(0,3).compare("cmp") == 0){
+            testALU.sub(operator1, operator2, updateFlags);
+        }else if(inputString.substr(0,3).compare("tst") == 0){
+            testALU.andOp(operator1, operator2, updateFlags);
+        }else if(inputString.substr(0,3).compare("mov") == 0){
             result = testALU.mov(operator1, updateFlags);
         }else if(inputString.substr(0,3).compare("mvn") == 0){
             result = testALU.mvn(operator1, updateFlags);

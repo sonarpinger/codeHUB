@@ -9,3 +9,5 @@ xor r5, r3, r4
 MOV R6, #0xFFFFFFFF
 lsrs R7, R6, #2
 LSLS R6, R7, #1
+CMP R6, R7
+tst R3, R4
