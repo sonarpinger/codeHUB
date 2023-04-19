@@ -7,7 +7,6 @@
 
 
 // What to do;
-// deal with CMP and TST
 // deal with C and V flags
 
 int main(int argc, char *argv[]){
@@ -81,14 +80,14 @@ int main(int argc, char *argv[]){
             reg.erase(reg.length() - 1);
         }
 
-        // debug for loop
-        for(int i = 0; i < 4; i++){
-            std::cout << arr[i] << std::endl;
-        }
-        std::cout << "Registers: " << reg << std::endl;
-        std::cout << "Operand 1: " << op1 << std::endl;
-        std::cout << "Operand 2: " << op2 << std::endl;
-        std::cout << "oneOperand: " << oneOperand << std::endl;
+        // // debug for loop
+        // for(int i = 0; i < 4; i++){
+        //     std::cout << arr[i] << std::endl;
+        // }
+        // std::cout << "Registers: " << reg << std::endl;
+        // std::cout << "Operand 1: " << op1 << std::endl;
+        // std::cout << "Operand 2: " << op2 << std::endl;
+        // std::cout << "oneOperand: " << oneOperand << std::endl;
 
         std::size_t pos1;
         std::size_t pos2;
@@ -176,7 +175,7 @@ int main(int argc, char *argv[]){
         // std::cout << copyString << ": " << std::hex << "0x" << result << std::endl;
         std::cout << copyString << std::endl;
         // output flags
-        testALU.outputNZ();
+        testALU.outputNZCV();
         for(int i = 0; i < 8; i++){
             std::cout << "r" << i << ": " << std::hex << "0x" << registers[i] << "   ";
         }
