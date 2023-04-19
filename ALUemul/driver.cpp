@@ -9,6 +9,13 @@
 // parse 2 registers as inputs
 // deal with CMP and TST
 
+// one operand
+// if not, mvn, mov
+//  // no immediate val
+// // get values from register array
+// else
+// // take value of op2 litterally
+
 int main(int argc, char *argv[]){
     ALU testALU;
     uint32_t operator1;
