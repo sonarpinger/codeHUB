@@ -37,7 +37,7 @@ int main(int argc, char *argv[]){
 
         copyString = inputString;
         std::transform(inputString.begin(), inputString.end(), inputString.begin(), ::tolower);
-
+        std::transform(copyString.begin(), copyString.end(), copyString.begin(), ::toupper);
         std::cout << std::endl;
         std::cout << std::endl;
 
@@ -80,15 +80,6 @@ int main(int argc, char *argv[]){
             reg.erase(reg.length() - 1);
         }
 
-        // // debug for loop
-        // for(int i = 0; i < 4; i++){
-        //     std::cout << arr[i] << std::endl;
-        // }
-        // std::cout << "Registers: " << reg << std::endl;
-        // std::cout << "Operand 1: " << op1 << std::endl;
-        // std::cout << "Operand 2: " << op2 << std::endl;
-        // std::cout << "oneOperand: " << oneOperand << std::endl;
-
         std::size_t pos1;
         std::size_t pos2;
         try{
@@ -123,9 +114,9 @@ int main(int argc, char *argv[]){
             updateFlags = 1;
         }
         if(inputString.substr(0,3).compare("cmp") == 0){
-            testALU.sub(operator1, operator2, updateFlags);
+            testALU.sub(operator1, operator2, true); //always gives flags
         }else if(inputString.substr(0,3).compare("tst") == 0){
-            testALU.andOp(operator1, operator2, updateFlags);
+            testALU.andOp(operator1, operator2, true); //always gives flags
         }else if(inputString.substr(0,3).compare("mov") == 0){
             result = testALU.mov(operator1, updateFlags);
         }else if(inputString.substr(0,3).compare("mvn") == 0){
@@ -172,12 +163,14 @@ int main(int argc, char *argv[]){
         }
 
         std::cout << std::endl;
-        // std::cout << copyString << ": " << std::hex << "0x" << result << std::endl;
         std::cout << copyString << std::endl;
         // output flags
         testALU.outputNZCV();
         for(int i = 0; i < 8; i++){
-            std::cout << "r" << i << ": " << std::hex << "0x" << registers[i] << "   ";
+            std::cout << "R" << i << ": " << std::hex << "0x" << registers[i];
+            if(i != 7){
+                std::cout << "   ";
+            }
         }
         if(file.eof()){
             break;
