@@ -70,6 +70,10 @@ int main(int argc, char *argv[]){
             oneOperand = 1;
             op1.erase(0, 1);
         }
+        if(op2.front() == '#'){
+            op2.erase(0, 1);
+            oneOperand = 1;
+        }
         if(op1.back() == ','){
             op1.erase(reg.length() - 1);
         }
@@ -87,6 +91,9 @@ int main(int argc, char *argv[]){
                 if(op1.substr(0,1).compare("r") == 0){
                     int op1Selector = std::stoi(op1.substr(1,1));
                     operator1 = registers[op1Selector];
+                    if(op2 != ""){
+                        operator2 = std::stoi(op2);
+                    }
                 }else{
                     operator1 = std::stoul(op1, &pos1, 16);
                     if(op2 != ""){
@@ -109,14 +116,20 @@ int main(int argc, char *argv[]){
         }
 
         uint32_t result;
-        bool updateFlags = 0;
+        bool updateFlags = false;
+        bool updateRegisters = true;
+
         if(inputString.substr(3,1).compare("s") == 0){
             updateFlags = 1;
         }
         if(inputString.substr(0,3).compare("cmp") == 0){
             testALU.sub(operator1, operator2, true); //always gives flags
+            updateRegisters = false;
+            updateFlags = true;
         }else if(inputString.substr(0,3).compare("tst") == 0){
             testALU.andOp(operator1, operator2, true); //always gives flags
+            updateRegisters = false;
+            updateFlags = true;
         }else if(inputString.substr(0,3).compare("mov") == 0){
             result = testALU.mov(operator1, updateFlags);
         }else if(inputString.substr(0,3).compare("mvn") == 0){
@@ -143,15 +156,17 @@ int main(int argc, char *argv[]){
             std::cout << "Unknown Operation! Check README" << std::endl;
             return 1;
         }
-
-        if(reg.substr(0,1).compare("r") == 0){
-            int selector = std::stoi(reg.substr(1,1));
-            registers[selector] = result;
+        if(updateRegisters){
+            if(reg.substr(0,1).compare("r") == 0){
+                int selector = std::stoi(reg.substr(1,1));
+                registers[selector] = result;
+            }
         }
 
         std::cout << std::endl;
         std::cout << copyString << std::endl;
-        std::cout << "UpdateFlags: " << updateFlags << std::endl;
+        // std::string regString;
+        // std::cout << "UpdateFlags: " << updateFlags << std::endl;
         // output flags
         testALU.outputNZCV();
         for(int i = 0; i < 8; i++){
