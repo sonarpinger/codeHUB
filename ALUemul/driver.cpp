@@ -144,26 +144,14 @@ int main(int argc, char *argv[]){
             return 1;
         }
 
-        if(reg.substr(0,2).compare("r0") == 0){
-            registers[0] = result;
-        }else if(reg.substr(0,2).compare("r1") == 0){
-            registers[1] = result;
-        }else if(reg.substr(0,2).compare("r2") == 0){
-            registers[2] = result;
-        }else if(reg.substr(0,2).compare("r3") == 0){
-            registers[3] = result;
-        }else if(reg.substr(0,2).compare("r4") == 0){
-            registers[4] = result;
-        }else if(reg.substr(0,2).compare("r5") == 0){
-            registers[5] = result;
-        }else if(reg.substr(0,2).compare("r6") == 0){
-            registers[6] = result;
-        }else if(reg.substr(0,2).compare("r7") == 0){
-            registers[7] = result;
+        if(reg.substr(0,1).compare("r") == 0){
+            int selector = std::stoi(reg.substr(1,1));
+            registers[selector] = result;
         }
 
         std::cout << std::endl;
         std::cout << copyString << std::endl;
+        std::cout << "UpdateFlags: " << updateFlags << std::endl;
         // output flags
         testALU.outputNZCV();
         for(int i = 0; i < 8; i++){

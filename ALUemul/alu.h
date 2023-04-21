@@ -10,6 +10,22 @@ class ALU{
     bool C = false;
     bool V = false;
 
+    bool checkMSB(uint32_t eep);
+    bool checkMSB(int32_t eep);
+    bool checkOverflow(uint32_t op1, uint32_t op2, uint32_t res);
+    bool checkOverflow(int32_t op1, int32_t op2, int32_t res);
+    // bool checkMSB(uint32_t eep);
+    // bool checkMSB(int32_t eep);
+
+    void updateNZ(uint32_t);
+    void updateNZ(int32_t);
+
+    void updateNZCV(uint32_t, uint32_t);
+    void updateNZCV(uint32_t, uint32_t, uint32_t);
+
+    void updateNZCV(int32_t, int32_t);
+    void updateNZCV(int32_t, int32_t, int32_t);
+
     public:
         uint32_t add(uint32_t, uint32_t, bool);
         uint32_t andOp(uint32_t, uint32_t, bool);
@@ -23,18 +39,6 @@ class ALU{
         uint32_t mov(uint32_t, bool);
         uint32_t mvn(uint32_t, bool);
 
-        // void updateNZ(uint32_t);
-        // void updateNZ(int32_t);
-
-        // void outputNZ();
-
         void outputNZCV();
-
-        void updateNZCV(uint32_t);
-        void updateNZCV(uint32_t, uint32_t);
-        void updateNZCV(uint32_t, uint32_t, uint32_t);
-        void updateNZCV(int32_t);
-        void updateNZCV(int32_t, int32_t);
-        void updateNZCV(int32_t, int32_t, int32_t);
 };
 #endif
