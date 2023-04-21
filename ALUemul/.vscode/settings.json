@@ -63,5 +63,6 @@
     "system_error": "cpp",
     "type_traits": "cpp",
     "typeinfo": "cpp"
-  }
+  },
+  "C_Cpp_Runner.useAddressSanitizer": false
 }
