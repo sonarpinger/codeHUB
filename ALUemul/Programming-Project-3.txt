@@ -1,0 +1,13 @@
+MOV R1, #0x72DF9901
+MOV R2, #0x2E0B484A
+ADDS R3, R1, R2
+SUBS R4, R3, R2
+mov r0, #0xAAA5555
+ands r0, r0, r4
+orr r0, r2, r3
+xor r5, r3, r4
+MOV R6, #0xFFFFFFFF
+lsrs R7, R6, #2
+LSLS R6, R7, #1
+CMP R6, R7
+tst R3, R4
