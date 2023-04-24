@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Little Yoink/Documents/GitHub/codeHUB/codeHUB-1/ALUemul",
-      "program": "c:/Users/Little Yoink/Documents/GitHub/codeHUB/codeHUB-1/ALUemul/build/Debug/outDebug",
+      "cwd": "c:/Users/brand/Documents/Github/codeHUB/ALUemul",
+      "program": "c:/Users/brand/Documents/Github/codeHUB/ALUemul/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

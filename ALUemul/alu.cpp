@@ -21,10 +21,9 @@ uint32_t ALU::andOp(uint32_t op1 , uint32_t op2, bool updateFlags){
 uint32_t ALU::asr(int32_t op1, int32_t op2, bool updateFlags){
     int32_t res = (op1 >> op2);
     if(updateFlags){
-        V = !checkOverflow(op1, op2, res);
         Z = (res == 0);
         N = checkMSB(res);
-        C = op1 > op2;
+        C = op1 & (0x1 << op2 - 1);
     }
     return res;
 }

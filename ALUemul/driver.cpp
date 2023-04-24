@@ -92,7 +92,7 @@ int main(int argc, char *argv[]){
                     int op1Selector = std::stoi(op1.substr(1,1));
                     operator1 = registers[op1Selector];
                     if(op2 != ""){
-                        operator2 = std::stoi(op2);
+                        operator2 = std::stoul(op2, &pos2, 16);
                     }
                 }else{
                     operator1 = std::stoul(op1, &pos1, 16);
