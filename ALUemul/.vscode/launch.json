@@ -7,9 +7,9 @@
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
-      "externalConsole": true,
-      "cwd": "c:/Users/brand/Documents/Github/codeHUB/ALUemul",
-      "program": "c:/Users/brand/Documents/Github/codeHUB/ALUemul/build/Debug/outDebug",
+      "externalConsole": false,
+      "cwd": "/home/smallyoink/Documents/Github/codeHUB/ALUemul",
+      "program": "/home/smallyoink/Documents/Github/codeHUB/ALUemul/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

@@ -1,3 +1,0 @@
-MOV R6, #0xFFFFFFFF
-lsrs R7, R6, #2
-LSLS R6, R7, #1

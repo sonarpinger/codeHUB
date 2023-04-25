@@ -1,6 +1,6 @@
 #ifndef ALU_H
 #define ALU_H
-// #include "stdint.h"
+#include "stdint.h"
 #include <iostream>
 
 class ALU{

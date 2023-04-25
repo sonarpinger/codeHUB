@@ -1,13 +1,10 @@
 #include <sstream>
+#include <iostream>
 #include <algorithm>
 #include <fstream>
 #include "alu.h"
 
 // Name: Brandon Ramirez
-
-
-// What to do;
-// deal with C and V flags
 
 int main(int argc, char *argv[]){
     ALU testALU;
