@@ -1,3 +1,4 @@
+// description: This file contains the class definition for the ALU class and the function prototypes for the ALU class.
 #ifndef ALU_H
 #define ALU_H
 #include "stdint.h"

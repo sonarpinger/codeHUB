@@ -71,7 +71,18 @@
     "utility": "cpp",
     "compare": "cpp",
     "concepts": "cpp",
-    "numbers": "cpp"
+    "numbers": "cpp",
+    "atomic": "cpp",
+    "bit": "cpp",
+    "cstdarg": "cpp",
+    "cstddef": "cpp",
+    "algorithm": "cpp",
+    "iterator": "cpp",
+    "memory": "cpp",
+    "memory_resource": "cpp",
+    "numeric": "cpp",
+    "random": "cpp",
+    "ranges": "cpp"
   },
   "C_Cpp_Runner.showCompilationTime": false
 }
